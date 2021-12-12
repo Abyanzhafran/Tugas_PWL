@@ -12,6 +12,12 @@
                         unset($_SESSION['Flash_data']);
                         echo $pesan;
                     }
+
+                    if (isset($_SESSION['Delete_data'])) {
+                        $msg = $_SESSION['Delete_data'];
+                        unset($_SESSION['Delete_data']);
+                        echo $msg;
+                    }
                     ?>
                     <div class="card">
                         <div class="card-header">
@@ -39,10 +45,11 @@
                                     <tbody>
                                         <?php 
                                             include("env.php");
+                                            include("controller_hapus.php");
                                             $sql = "SELECT id,nama,alamat FROM tb_biodata";
                                             $hasil = mysqli_query($con,$sql) or exit("Error query: <b>".$sql."</b>.");
 
-                                            while($data = mysqli_fetch_assoc($hasil)){
+                                            while($data = mysqli_fetch_assoc($hasil)) {
                                         ?>
                                         <tr>
                                             <td><?php echo $data['id']; ?></td>
@@ -61,7 +68,7 @@
                                                     aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item" href="#">Detail</a>
                                                         <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Hapus</a>
+                                                        <a class="dropdown-item" href="controller_hapus.php?id=<?php echo $data['id'];?>">Hapus</a>
                                                     </div>
                                                 </div>
                                             </td>

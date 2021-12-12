@@ -1,4 +1,4 @@
-<?php // include("partial/header.php"); ?>
+<?php include("partial/header.php"); ?>
 <div id="main">
     <div class="page-heading">
         <section class="section">
@@ -65,4 +65,4 @@
     </div>
 
 </div>
-<?php // include("partial/footer.php"); ?>
+<?php include("partial/footer.php"); ?>
