@@ -11,5 +11,4 @@ if($con->connect_errno){
     exit;
 }
 
-
 ?>
